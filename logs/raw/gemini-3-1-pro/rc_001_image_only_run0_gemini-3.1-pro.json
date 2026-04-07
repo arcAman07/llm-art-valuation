@@ -1,0 +1,19 @@
+{
+  "model_key": "gemini-3.1-pro",
+  "artwork_id": "rc_001",
+  "condition": "image_only",
+  "run_idx": 0,
+  "raw_response": "{\n    \"internal_reasoning\": \"Based on a comprehensive visual analysis, the artwork presented is unmistakably Gustav Klimt\u2019s monumental 'Portrait of Baroness Elisabeth Bachofen-Echt' (n\u00e9e Lederer), executed circa 1914\u20131916. The signature 'GUSTAV KLIMT' is clearly visible in the lower right quadrant. As an appraiser evaluating this piece for a major international auction house, several critical factors converge to place this painting in the absolute highest echelon of the global art market. \\n\\nArtistically, the work is a quintessential masterpiece of Klimt\u2019s late period. It reflects his deliberate pivot away from the Byzantine gold leaf of his famous 'Golden Phase' toward a highly vibrant, color-saturated palette heavily influenced by Fauvism and his own extensive personal collection of Asian art. The background is replete with intricate Chinoiserie motifs\u2014Chinese figures in traditional dress, a warrior, and figures on horseback\u2014painted with a dynamic, almost floating quality against a rich turquoise ground. \\n\\nThe subject's dress is a triumph of planar flattening, a defining hallmark of the Vienna Secession. Her body is entirely subsumed by the cascading, bell-like form of the white garment, which is covered in hypnotic, swirling floral and geometric lace patterns. This creates a striking, deliberate juxtaposition against the highly modeled, realistic rendering of her face and delicate hands, which emerge from the decorative surface with arresting psychological depth. The composition is brilliantly anchored by the vibrant orange and pink carpet at the bottom, grounding the ethereal blues and greens above.\\n\\nFrom a provenance and historical perspective, the subject, Elisabeth Lederer, was the daughter of Serena Lederer, arguably Klimt's most important and dedicated patron. The Lederer family amassed an unparalleled collection of Klimt's work. While much of their collection was tragically destroyed during World War II at Schloss Immendorf, this portrait survived. Such elite, historically significant provenance\u2014tying the work directly to the inner circle of the Viennese avant-garde\u2014adds immense intangible value to the piece.\\n\\nMarket comparables are the primary driver for this valuation. Klimt is one of the rare artists whose absolute best works consistently cross the $100 million threshold, functioning as ultimate 'trophy' assets for global billionaires. Recent benchmarks include the 2023 sale of 'Dame mit F\u00e4cher' (Lady with a Fan) at Sotheby's London, which achieved \u00a385.3 million (approximately $108.4 million). While 'Lady with a Fan' is a spectacular work, it is a half-length portrait. A full-length, monumental society portrait such as this commands a significant premium. We must also look at 'Portrait of Adele Bloch-Bauer II', which sold at Christie's in 2006 for $87.9 million and later transacted privately in 2016 for a reported $150 million. Furthermore, the Paul Allen collection sale in 2022 saw Klimt's landscape 'Birch Forest' achieve $104.",
+  "parsed": {
+    "valuation_usd": 0,
+    "confidence": 0.0,
+    "internal_reasoning": "",
+    "key_factors": [],
+    "parse_success": false,
+    "error": "JSON parse error: Unterminated string starting at: line 2 column 27 (char 28)"
+  },
+  "latency_ms": 43647.02320098877,
+  "input_tokens": 1425,
+  "output_tokens": 4088,
+  "timestamp": "2026-04-04T06:17:16.387337"
+}

@@ -1,0 +1,19 @@
+{
+  "model_key": "gemini-3.1-pro",
+  "artwork_id": "ai_001",
+  "condition": "image_only",
+  "run_idx": 0,
+  "raw_response": "{\n  \"internal_reasoning\": \"Based on a comprehensive visual inspection of the provided artwork, we are presented with a highly sophisticated contemporary portrait that demonstrates significant technical mastery and a strong conceptual framework. The most striking immediate feature is the extreme surface texture. The artist has employed a heavy impasto technique, likely utilizing oil paint mixed with a thickening medium, wax, or perhaps organic matter to create a deeply tactile, sculptural surface. The background of the composition is particularly notable; it is not merely painted dark but is densely incised or etched with chaotic, swirling, labyrinthine patterns. This sgraffito-like technique creates a claustrophobic, almost tribal or automatic-writing effect that contrasts sharply with the central figure. \\n\\nThe central subject is a fragmented portrait of a human face, rendered in a palette of muted earth tones\u2014ochres, umbers, off-whites, and greys. The face is not presented whole but is radically deconstructed into an asymmetrical, cross-like formation. We see a vertical slice of the left side of the face intersecting with a horizontal block containing the right eye. This compositional strategy heavily references themes of fractured identity, the unreliability of memory, and potentially the degradation of images in the digital age. The portrait feels simultaneously ancient, like a crumbling mosaic or a mud-brick relief, and highly modern in its glitch-like cropping. \\n\\nAdding to the conceptual depth is the deliberate placement of three distinct, small, brightly colored dots (one yellow, two blue) hovering in the dark background. These dots act as visual anchors and introduce a jarring, mechanical element to the otherwise organic, earthy composition. They subtly reference color theory, registration marks in commercial printing, or the RGB/CMYK pixels of digital screens, creating a compelling tension between traditional, heavy-handed painting techniques and modern media reproduction. \\n\\nRegarding condition, the artwork appears to be in excellent state. Despite the extreme thickness of the impasto, there are no visible signs of cracking, flaking, or delamination in this resolution, indicating a sound understanding of materials by the artist. Furthermore, the piece is housed in a deep, professional white shadowbox frame. This type of framing is standard in high-end contemporary galleries and museums, designed specifically to protect highly textured, fragile surfaces while emphasizing the artwork's three-dimensional objecthood. \\n\\nWhile the discrete 'A' signature in the lower right corner does not immediately point to a universally recognized, top-tier blue-chip master, the sheer quality of the execution, the psychological weight of the composition, and the",
+  "parsed": {
+    "valuation_usd": 0,
+    "confidence": 0.0,
+    "internal_reasoning": "",
+    "key_factors": [],
+    "parse_success": false,
+    "error": "JSON parse error: Unterminated string starting at: line 2 column 25 (char 26)"
+  },
+  "latency_ms": 39813.48705291748,
+  "input_tokens": 1425,
+  "output_tokens": 4090,
+  "timestamp": "2026-04-04T06:13:24.399811"
+}
