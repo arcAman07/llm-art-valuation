@@ -112,17 +112,3 @@ True prices span $51K → $450M. OOD artworks were sold at auction in 2024–202
 - [`x_blog_exp1.md`](x_blog_exp1.md) — blog post version
 - [`logs/README.md`](logs/README.md) — cross-model results tables
 
----
-
-## Citation
-
-If you use this data or code, please cite:
-
-```
-@misc{llm-art-valuation-2025,
-  title={Do LLMs See or Remember? Art Valuation Under Image-Only vs Metadata Conditions},
-  author={Lossfunk Research},
-  year={2025},
-  url={https://github.com/arcAman07/llm-art-valuation}
-}
-```
