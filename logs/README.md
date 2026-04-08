@@ -40,12 +40,12 @@ Every field the model produced is preserved verbatim.
 
 | Model | File | Image-Only MALE | Metadata MALE | Improvement |
 |---|---|---|---|---|
-| Gemini 3.1 Pro | [gemini-3-1-pro.md](gemini-3-1-pro.md) | 1.155 | 0.523 | 2.2x |
-| Claude Sonnet 4.6 | [sonnet-4-6.md](sonnet-4-6.md) | 1.594 | 0.672 | 2.4x |
-| Qwen 3.6 Plus | [qwen-3-6.md](qwen-3-6.md) | 1.876 | 1.039 | 1.8x |
-| GPT-5.4 | [gpt-5-4.md](gpt-5-4.md) | 4.303 | 0.788 | **5.5x** |
+| Gemini 3.1 Pro | [gemini-3-1-pro.md](gemini-3-1-pro.md) | 1.106 | 0.460 | 2.4x |
+| Claude Sonnet 4.6 | [sonnet-4-6.md](sonnet-4-6.md) | 1.570 | 0.713 | 2.2x |
+| Qwen 3.6 Plus | [qwen-3-6.md](qwen-3-6.md) | 2.002 | 1.046 | 1.9x |
+| GPT-5.4 | [gpt-5-4.md](gpt-5-4.md) | 4.577 | 0.732 | **6.3x** |
 
-MALE = Mean Absolute Log Error. Lower is better. GPT's 5.5x improvement from adding a text label means the image is doing almost nothing for it.
+MALE = Mean Absolute Log Error. Lower is better. GPT's 6.3x improvement from adding a text label means the image is doing almost nothing for it.
 
 ---
 

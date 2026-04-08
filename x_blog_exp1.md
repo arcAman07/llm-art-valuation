@@ -127,10 +127,10 @@ We also report the **median ratio** throughout — the middle estimate when all 
 
 | Model | MALE ↓ (lower = better) | Median Ratio | Avg Confidence |
 |---|---|---|---|
-| **Gemini 3.1 Pro** | **1.155** | 0.761 | 0.92 |
-| Claude Sonnet 4.6 | 1.594 | 0.672 | 0.54 |
-| Qwen 3.6 Plus | 1.876 | 0.315 | 0.83 |
-| GPT-5.4 | 4.303 | 0.033 | 0.33 |
+| **Gemini 3.1 Pro** | **1.106** | 0.761 | 0.91 |
+| Claude Sonnet 4.6 | 1.570 | 0.672 | 0.57 |
+| Qwen 3.6 Plus | 2.002 | 0.315 | 0.84 |
+| GPT-5.4 | 4.577 | 0.033 | 0.33 |
 
 Gemini wins by a large margin. Its median ratio of 0.761 means that in a typical appraisal, it lands within 25% of the true price from the image alone. GPT's median of 0.033 means it typically prices artworks at about 3 cents on the dollar.
 
@@ -138,12 +138,12 @@ Gemini wins by a large margin. Its median ratio of 0.761 means that in a typical
 
 | Model | MALE ↓ | Median Ratio | Avg Confidence |
 |---|---|---|---|
-| **Gemini 3.1 Pro** | **0.523** | 0.978 | 0.91 |
-| Claude Sonnet 4.6 | 0.672 | 0.782 | 0.59 |
-| GPT-5.4 | 0.788 | 0.657 | 0.70 |
-| Qwen 3.6 Plus | 1.039 | 0.613 | 0.84 |
+| **Gemini 3.1 Pro** | **0.460** | 0.978 | 0.91 |
+| Claude Sonnet 4.6 | 0.713 | 0.782 | 0.59 |
+| GPT-5.4 | 0.732 | 0.657 | 0.70 |
+| Qwen 3.6 Plus | 1.046 | 0.613 | 0.84 |
 
-Gemini's median with metadata is 0.978 — essentially the market price. GPT dramatically recovers (MALE 4.3 → 0.8) and jumps over Qwen in the rankings. The order changes because GPT's recovery is driven by database lookup, not visual understanding. More on this below.
+Gemini's median with metadata is 0.978 — essentially the market price. GPT dramatically recovers (MALE 4.6 → 0.7) and jumps over Qwen in the rankings. The order changes because GPT's recovery is driven by database lookup, not visual understanding. More on this below.
 
 ---
 
@@ -153,7 +153,7 @@ Gemini's median with metadata is 0.978 — essentially the market price. GPT dra
 
 Gemini is the best model in both conditions, and the gap to second place is wide. But the more important question is *how* it appraises — and the answer reveals something genuinely impressive.
 
-**The metadata gap tells the story.** Gemini's MALE changes from 1.155 (image-only) to 0.523 (with metadata) — a 2.2× improvement. Compare that to GPT's 4.303 → 0.788 (5.5× improvement). Gemini already has most of the information it needs from the image alone. Metadata helps, but it does not unlock a completely different mode.
+**The metadata gap tells the story.** Gemini's MALE changes from 1.106 (image-only) to 0.460 (with metadata) — a 2.4× improvement. Compare that to GPT's 4.577 → 0.732 (6.3× improvement). Gemini already has most of the information it needs from the image alone. Metadata helps, but it does not unlock a completely different mode.
 
 **The Recent OOD test is the proof.** These are 2025 auction results — prices the model almost certainly never saw in training. On image-only Recent OOD works, Gemini's MALE is **0.414**. That means it is off by less than 1.5× on average from the true price, from pixels alone, on works it has never seen priced. This is genuine visual appraisal.
 
@@ -172,7 +172,7 @@ Near-perfect, from a JPEG.
 
 ### Claude Sonnet 4.6 — The Bold Recognizer With Poor Calibration
 
-Claude ranks second overall (MALE 1.594 image-only) but with a striking failure pattern: it recognizes artworks from visual style and then *dramatically overvalues* them.
+Claude ranks second overall (MALE 1.570 image-only) but with a striking failure pattern: it recognizes artworks from visual style and then *dramatically overvalues* them.
 
 On masterpieces, Claude's average ratio image-only is **2.553** — it overvalues by 2.5× on average. The paradigm case is Portrait of Dr. Gachet (true: $82.5M):
 
@@ -190,13 +190,13 @@ The same pattern across masterpieces: Renoir's Bal du moulin estimated at $320M 
 
 Twenty-two thousand dollars. For a $6.9M painting. Claude correctly senses it is uncertain (confidence 0.25), but it has no framework at all for pricing contemporary figurative painting. The social signals that make a George Condo worth millions — his gallery relationships, his museum retrospectives, his collector base — are entirely invisible from the canvas.
 
-**Metadata helps Claude substantially** (MALE 1.594 → 0.672, 2.4× improvement), suggesting it was doing genuine visual recognition that labels then calibrate. But it remains directionally biased — it undervalues almost everything except famous masterpieces.
+**Metadata helps Claude substantially** (MALE 1.570 → 0.713, 2.2× improvement), suggesting it was doing genuine visual recognition that labels then calibrate. But it remains directionally biased — it undervalues almost everything except famous masterpieces.
 
 ---
 
 ### Qwen 3.6 Plus — Highly Confident, Frequently Wrong
 
-Qwen presents the most counterintuitive result: it reports the second-highest average confidence (0.83) while having the second-worst MALE (1.876 image-only). It is very confident about deeply wrong answers.
+Qwen presents the most counterintuitive result: it reports the highest average confidence (0.84) while having the second-worst MALE (2.002 image-only). It is very confident about deeply wrong answers.
 
 Its median ratio image-only is **0.315** — it typically prices artworks at about 30 cents on the dollar, far more conservative than Gemini or Claude. But it reports this with a confidence of 0.83 regardless. The confidence score is decorrelated from accuracy.
 
@@ -209,7 +209,7 @@ It looked at a Klimt worth $86 million and confidently priced it as a minor Henr
 
 **When Qwen does recognize a work, it performs reasonably.** Salvator Mundi: $475M estimate (ratio 1.055, confidence 0.95). Qwen 3.6 is a VL model trained extensively on visual data, and when it has enough context to recognize a famous work, its estimates are competitive with Gemini. The problem is that its recognition is brittle and its failure mode is loud — high-confidence wrong answers rather than low-confidence hedged answers.
 
-**With metadata, Qwen still underperforms** (MALE 1.039 with labels, vs. 0.523 for Gemini). Even knowing the artist and title, Qwen's price calibration is worse than Gemini from pixels alone. This suggests its weakness is not primarily visual recognition but price calibration overall.
+**With metadata, Qwen still underperforms** (MALE 1.046 with labels, vs. 0.460 for Gemini). Even knowing the artist and title, Qwen's price calibration is worse than Gemini from pixels alone. This suggests its weakness is not primarily visual recognition but price calibration overall.
 
 ---
 
@@ -233,11 +233,11 @@ From $8,000 to $165 million. A **20,625× increase** from adding a text label.
 
 This is not metadata *helping* GPT appraise better. This is GPT switching from "unidentified object" mode to "database lookup" mode. In image-only mode, GPT's policy is essentially: *without confirmed attribution, I will not assign auction-house value regardless of visual evidence*. With the label, it retrieves the memorized price and produces a competent estimate.
 
-GPT's MALE improvement from metadata is 5.5× — nearly double the next-highest model (Claude at 2.4×). Nothing else comes close.
+GPT's MALE improvement from metadata is 6.3× — more than double the next-highest model (Gemini at 2.4×). Nothing else comes close.
 
 **GPT's confidence tells the honest story.** Image-only average confidence: **0.33** — the lowest of any model. GPT knows it cannot see art. Its confidence jumps to 0.70 with metadata, tracking the genuine improvement. This is the one calibration finding that is actually accurate: GPT reports low confidence when it is unreliable and higher confidence when it has real information.
 
-**GPT is not a bad model overall** — with labels, its MALE (0.788) is actually better than Qwen (1.039). The problem is that this performance is entirely contingent on having identifying text. Remove the label and GPT is useless as an art appraiser.
+**GPT is not a bad model overall** — with labels, its MALE (0.732) is actually better than Qwen (1.046). The problem is that this performance is entirely contingent on having identifying text. Remove the label and GPT is useless as an art appraiser.
 
 ---
 
@@ -249,12 +249,12 @@ The single chart that summarizes the whole experiment:
 
 | Model | Image-Only MALE | With Metadata MALE | Improvement Factor |
 |---|---|---|---|
-| GPT-5.4 | 4.303 | 0.788 | **5.5×** |
-| Qwen 3.6 Plus | 1.876 | 1.039 | 1.8× |
-| Claude Sonnet 4.6 | 1.594 | 0.672 | 2.4× |
-| Gemini 3.1 Pro | 1.155 | 0.523 | 2.2× |
+| GPT-5.4 | 4.577 | 0.732 | **6.3×** |
+| Qwen 3.6 Plus | 2.002 | 1.046 | 1.9× |
+| Claude Sonnet 4.6 | 1.570 | 0.713 | 2.2× |
+| Gemini 3.1 Pro | 1.106 | 0.460 | 2.4× |
 
-The improvement factor measures how much of each model's performance depends on the text label. Gemini (2.2×) and Claude (2.4×) improve modestly — they were already doing something useful from the image. GPT's 5.5× improvement is a category difference: it was essentially non-functional without the label.
+The improvement factor measures how much of each model's performance depends on the text label. Gemini (2.4×) and Claude (2.2×) improve modestly — they were already doing something useful from the image. GPT's 6.3× improvement is a category difference: it was essentially non-functional without the label.
 
 ### Does Adding Metadata Cause Overbidding or Underbidding?
 
@@ -434,7 +434,7 @@ The deeper difference from humans: a human expert would have tacit knowledge abo
 
 **6. AI art is unpriceable from either images or labels.** The narrative premium in training data overwhelms the actual market price. With labels, all models overshoot Memories of Passersby I — they price the cultural story of "first AI artwork at Sotheby's" rather than the $51K hammer price.
 
-**7. The metadata gap is a diagnostic for cognitive mode.** Measure how much a model improves from adding a text label. A large improvement (GPT: 5.5×) means the model is primarily doing database retrieval. A small improvement (Gemini: 2.2×) means it was already doing something useful visually. This diagnostic generalizes: whenever you ask an LLM to "evaluate" anything, you can measure whether it is reasoning from evidence or recalling from training by varying the contextual cues.
+**7. The metadata gap is a diagnostic for cognitive mode.** Measure how much a model improves from adding a text label. A large improvement (GPT: 6.3×) means the model is primarily doing database retrieval. A small improvement (Gemini: 2.4×) means it was already doing something useful visually. This diagnostic generalizes: whenever you ask an LLM to "evaluate" anything, you can measure whether it is reasoning from evidence or recalling from training by varying the contextual cues.
 
 ---
 
