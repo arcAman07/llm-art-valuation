@@ -9,7 +9,10 @@ from pathlib import Path
 from dataclasses import dataclass
 from typing import Optional
 
-import boto3
+try:
+    import boto3
+except ImportError:
+    boto3 = None  # Only needed if using Bedrock provider
 
 
 # =============================================================================
@@ -181,6 +184,8 @@ class BedrockClient:
     """Client for AWS Bedrock API (Claude Sonnet 4.6)."""
 
     def __init__(self, region: str = "us-east-1"):
+        if boto3 is None:
+            raise ImportError("boto3 is required for Bedrock provider. Install with: pip install boto3")
         self.client = boto3.client("bedrock-runtime", region_name=region)
 
     def complete(
@@ -238,7 +243,13 @@ class UnifiedLLMClient:
 
     def __init__(self, openrouter_api_key: str):
         self.openrouter = OpenRouterClient(openrouter_api_key)
-        self.bedrock = BedrockClient()
+        self._bedrock = None  # Lazy init: only created if a bedrock model is requested
+
+    @property
+    def bedrock(self):
+        if self._bedrock is None:
+            self._bedrock = BedrockClient()
+        return self._bedrock
 
     async def close(self):
         await self.openrouter.close()
