@@ -31,7 +31,31 @@ We showed four frontier LLMs — GPT-5.4, Claude Sonnet 4.6, Gemini 3.1 Pro, Qwe
 | Qwen 3.6 Plus | 1.876 | 1.039 | 1.8x |
 | **GPT-5.4** | **4.303** | **0.788** | **5.5x** |
 
-GPT's 5.5× improvement when adding a text label reveals it functions more as a **lookup engine** than a visual appraiser — the image alone contributes almost nothing to its estimate.
+GPT's 5.5x improvement when adding a text label reveals a fundamentally different approach to visual evaluation. GPT does genuine visual reasoning and analysis, but it will not commit to a price without textual verification of what the painting actually is. This is not a lack of visual understanding but rather a model that requires verbal confirmation about the authenticity and identity of the artwork before pricing it.
+
+---
+
+## Prompts
+
+All models received the same system prompt in both conditions. The key instruction was:
+
+> *"Provide your professional estimate of its current fair market value, what this piece would realistically sell for at a major international auction today, **assuming it is authentic and legally available for sale**."*
+
+Even with this explicit instruction to assume authenticity, GPT-5.4 still would not commit to a price without textual confirmation. The assumption of authenticity was not enough. GPT needed to know the identity.
+
+### Image-Only Condition
+> Please appraise the artwork shown in the image above. Base your valuation solely on what you can see. You have not been provided with any identifying information — no title, artist, date, or provenance.
+
+### Metadata Condition
+> Please appraise the following artwork:
+> - **Title:** {title}
+> - **Artist:** {artist}
+> - **Year:** {year}
+> - **Description:** {description}
+>
+> The image of the artwork is shown above. Base your valuation on the image and the metadata provided. No provenance documentation, condition report, or auction history has been supplied.
+
+The full prompt implementation is in [`src/experiment1.py`](src/experiment1.py).
 
 ---
 
@@ -108,7 +132,8 @@ True prices span $51K → $450M. OOD artworks were sold at auction in 2024–202
 
 ## Read the Full Analysis
 
+- **Blog Post 1:** [Can Frontier AI Models Read a Painting?](https://arcaman07.github.io/blog/can-llms-see-art.html) — 15 paintings across masterpieces, recent OOD, and contemporary art
+- **Blog Post 2:** [When AI Models Price AI Art](https://arcaman07.github.io/blog/when-ai-models-price-ai-art.html) — 5 AI artworks where narrative drives the price
 - [`experiment_1.md`](experiment_1.md) — in-depth analysis with all tables and commentary
-- [`x_blog_exp1.md`](x_blog_exp1.md) — blog post version
 - [`logs/README.md`](logs/README.md) — cross-model results tables
 
