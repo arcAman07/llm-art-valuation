@@ -4,7 +4,7 @@
 
 This repository contains the code, dataset, and per-painting reasoning logs for Experiment 1 of my **LLM Art Auctions** research series. Four frontier multimodal models (Gemini 3.1 Pro, Claude Sonnet 4.6, GPT-5.4, Qwen 3.6 Plus) appraise the same set of paintings in two conditions, and the gap between the two conditions turns out to be the most revealing part of the experiment.
 
-> **Blog Post 1:** [Can Frontier AI Models Read a Painting?](https://arcaman07.com/blog/can-llms-see-art.html)
+> **Blog Post 1:** [Can Frontier AI Models Read a Painting?](https://arcaman07.github.io/blog/can-llms-see-art.html)
 >
 > This is the first post in the LLM Art Auctions series. Subsequent posts cover AI-generated art and a multi-agent English ascending-price auction with all four models bidding against each other.
 
@@ -185,8 +185,8 @@ Cross-model per-artwork tables are also available in the human-readable per-mode
 
 ## Read the full analysis
 
-- **Blog Post 1:** [Can Frontier AI Models Read a Painting?](https://arcaman07.com/blog/can-llms-see-art.html) — 15 traditional paintings across masterpieces, recent OOD, and contemporary art, with the Recognition vs Commitment axis and the GPT commit threshold
-- **Blog Post 2:** [When the Price Is Not in the Image](https://arcaman07.com/blog/when-ai-models-price-ai-art.html) — a stress test of the metadata improvement diagnostic on five AI-generated artworks where the price lives in the narrative rather than the pixels (coming soon)
+- **Blog Post 1:** [Can Frontier AI Models Read a Painting?](https://arcaman07.github.io/blog/can-llms-see-art.html) — 15 traditional paintings across masterpieces, recent OOD, and contemporary art, with the Recognition vs Commitment axis and the GPT commit threshold
+- **Blog Post 2:** [When the Price Is Not in the Image](https://arcaman07.github.io/blog/when-ai-models-price-ai-art.html) — a stress test of the metadata improvement diagnostic on five AI-generated artworks where the price lives in the narrative rather than the pixels (coming soon)
 - [`experiment_1.md`](experiment_1.md) — in-depth analysis with all tables and commentary
 - [`logs/README.md`](logs/README.md) — cross-model results tables
 
@@ -197,7 +197,7 @@ Cross-model per-artwork tables are also available in the human-readable per-mode
   title = {Can Frontier AI Models Read a Painting? Recognition vs Commitment in Multimodal Art Valuation},
   author = {Sharma, Aman},
   year = {2026},
-  url = {https://arcaman07.com/blog/can-llms-see-art.html}
+  url = {https://arcaman07.github.io/blog/can-llms-see-art.html}
 }
 ```
 
